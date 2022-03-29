@@ -7,5 +7,7 @@ public class main {
     public static void main(String[] args) {
         ApplicationContext context=new ClassPathXmlApplicationContext("sbean.xml");
         helloWorld hello=context.getBean("hello",helloWorld.class);
+
+        hello.out();
     }
 }

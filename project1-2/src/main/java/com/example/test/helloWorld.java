@@ -20,7 +20,7 @@ public class helloWorld {
     public String getMessage() {
         return message;
     }
-
+    @Autowired
     public void setMessage(String message) {
         this.message = message;
     }
