@@ -1,20 +1,24 @@
 <template>
-<!--Home-->
-<!--  <el-button type="primary" >Home按钮</el-button>-->
-<!--  <button>test</button>-->
-  <div>
-    <el-table :data="tableData" style="width: max-content;" stripe="altrue">
-      <el-table-column prop="date" label="日期" min-width="180" />
-      <el-table-column prop="name" label="姓名" min-width="180" />
-      <el-table-column prop="address" label="地址" min-width="300" />
-    </el-table>
+  <div class="home">
+    Home
+    <input type="text" placeholder="请输入名字" v-model="username">
+    <button @click="getValue1">get1</button>
+    <button @click="getValue2">get2</button>
+    <hr/>
+    <form @submit.prevent>
+      姓名：<input type="text" name="name" v-model="user.name"><br/>
+      年龄：<input type="text" name="age" v-model="user.age"><br/>
+      性别：<input type="radio" name="gender" v-model="user.gender" value="Man">男
+      <input type="radio" name="gender" v-model="user.gender" value="Woman">女<br/>
+      邮箱：<input type="text" name="email" v-model="user.email"><br/>
+      <input type="submit" value="提交" @click="postValue">
+    </form>
+    {{ msg }}
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
-let altrue=true;
 
 export default {
   name:"HomeView",
@@ -31,23 +35,7 @@ export default {
         age:"",
         gender:"",
         email:""
-      },
-      tableData:[
-        {
-            name:"傻逼",
-            date:'2020-5-6',
-            address:"李家村250号"
-        },
-        {
-          name:"傻逼",
-          date:'2020-5-6',
-          address:"李家村250号"
-        },
-        {
-          name:"傻逼",
-          date:'2020-5-6',
-          address:"李家村250号"
-        },]
+      }
     }
   },
   methods:{
@@ -100,7 +88,5 @@ export default {
 }
 </script>
 <style>
-* {
-  flex-shrink:0;
-}
+
 </style>
